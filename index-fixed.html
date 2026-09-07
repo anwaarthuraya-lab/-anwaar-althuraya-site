@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>شركة أنوار الثريا للتجارة | Anwaar Althuraya Trading Co.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0c2d4c;
+      --navy-2: #123a61;
+      --orange: #f39a2c;
+      --red: #e9473d;
+      --blue: #0d68c9;
+      --gold: #f7c857;
+      --paper: #f6f3ef;
+      --line: #e8e2dc;
+      --text: #15263c;
+      --muted: #58677a;
+      --white: #fff;
+      --shadow: 0 18px 38px rgba(11, 29, 45, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'IBM Plex Sans Arabic', 'IBM Plex Sans', sans-serif;
+      background: var(--paper);
+      color: var(--text);
+      line-height: 1.7;
+      direction: rtl;
+    }
+    body.lang-en { font-family: 'IBM Plex Sans', 'IBM Plex Sans Arabic', sans-serif; }
+    body.lang-en [data-ar] { display: none !important; }
+    body.lang-ar [data-en] { display: none !important; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    h1, h2, h3, h4, p { margin: 0; }
+
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 0 22px; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,255,255,0.96);
+      border-bottom: 1px solid rgba(15,35,52,0.08);
+      backdrop-filter: blur(8px);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      min-height: 82px;
+    }
+
+    .brand-mark {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .brand-icon {
+      width: 70px;
+      height: 70px;
+      flex: none;
+      display: grid;
+      place-items: center;
+    }
+    .brand-icon svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .brand-wordmark {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2px;
+      min-width: 0;
+    }
+    .brand-wordmark .arabic {
+      font-size: clamp(22px, 2.2vw, 34px);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: var(--navy);
+      white-space: nowrap;
+    }
+    .brand-wordmark .english {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--navy-2);
+      white-space: nowrap;
+    }
+
+    nav.main-nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    nav.main-nav a {
+      font-size: 14px;
+      font-weight: 600;
+      color: #24374f;
+      padding: 6px 0;
+      position: relative;
+    }
+    nav.main-nav a::after {
+      content: "";
+      position: absolute;
+      inset-inline: 0;
+      bottom: -4px;
+      height: 2px;
+      background: var(--orange);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.22s ease;
+    }
+    nav.main-nav a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .lang-toggle {
+      display: inline-flex;
+      background: rgba(12, 45, 76, 0.06);
+      border-radius: 999px;
+      padding: 4px;
+      gap: 4px;
+      flex: none;
+    }
+    .lang-toggle button {
+      border: 0;
+      background: transparent;
+      color: #2d425c;
+      font: inherit;
+      font-weight: 700;
+      padding: 8px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+    .lang-toggle button.active {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #f7f4ef 0%, #edf3fa 48%, #f5f7f5 100%);
+      border-bottom: 1px solid var(--line);
+    }
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      filter: blur(70px);
+      opacity: 0.32;
+      pointer-events: none;
+    }
+    .hero::before {
+      background: rgba(243,154,44,0.36);
+      left: -90px;
+      top: -130px;
+    }
+    .hero::after {
+      background: rgba(19,78,154,0.22);
+      right: -80px;
+      bottom: -110px;
+    }
+
+    .hero-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      align-items: center;
+      gap: 36px;
+      padding: 70px 0 52px;
+    }
+
+    .hero-badge-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 118px;
+      height: 118px;
+      margin: 0 auto;
+    }
+    .hero-badge-wrap::before {
+      content: "";
+      position: absolute;
+      inset: -18px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(247,200,87,0.4), transparent 70%);
+    }
+    .hero-badge {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,0.4);
+      border: 1px solid rgba(12,45,76,0.08);
+      border-radius: 26px;
+      box-shadow: var(--shadow);
+    }
+    .hero-badge svg {
+      width: 76px;
+      height: 76px;
+      display: block;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+    .hero h1 {
+      font-size: clamp(34px, 4vw, 54px);
+      line-height: 1.22;
+      color: var(--navy);
+      margin-bottom: 20px;
+    }
+    .hero p {
+      max-width: 62ch;
+      font-size: 18px;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn.primary {
+      background: linear-gradient(135deg, var(--orange), #f5b34a);
+      color: #142238;
+      box-shadow: 0 12px 22px rgba(243,154,44,0.25);
+    }
+    .btn.secondary {
+      background: rgba(12,45,76,0.06);
+      color: var(--navy);
+      border-color: rgba(12,45,76,0.12);
+    }
+
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+    .stat {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.34);
+      border: 1px solid rgba(12,45,76,0.08);
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .stat b { color: var(--orange); }
+
+    section {
+      padding: 72px 0;
+    }
+    .section-head {
+      margin-bottom: 26px;
+    }
+    .kicker {
+      color: var(--orange);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .section-head h2 {
+      font-size: clamp(28px, 3vw, 40px);
+      color: var(--navy);
+      line-height: 1.3;
+    }
+
+    .mv-grid, .eco-cols, .why-grid, .contact-cols {
+      display: grid;
+      gap: 22px;
+    }
+    .mv-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .eco-cols { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .why-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .contact-cols { grid-template-columns: 1.2fr 0.9fr 0.9fr; }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: 0 10px 20px rgba(12, 45, 76, 0.04);
+    }
+    .mv-card {
+      padding: 28px;
+    }
+    .mv-card.mission { background: var(--navy); color: var(--white); }
+    .mv-card.vision { background: #edf2f7; }
+    .mv-card h3 { font-size: 22px; margin-bottom: 12px; }
+    .mv-card p { font-size: 15px; color: inherit; opacity: 0.9; }
+
+    .values-row {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 28px;
+    }
+    .value-item {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    .diamond {
+      width: 68px;
+      height: 68px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--navy), var(--navy-2));
+      transform: rotate(45deg);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 14px 22px rgba(12,45,76,0.14);
+    }
+    .diamond svg { width: 26px; height: 26px; color: var(--white); transform: rotate(-45deg); }
+    .value-item span {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.5;
+    }
+
+    .eco-col {
+      padding: 26px;
+    }
+    .eco-col-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .eco-col svg {
+      width: 24px;
+      height: 24px;
+      color: var(--orange);
+    }
+    .eco-col h3 {
+      color: var(--navy);
+      font-size: 20px;
+    }
+    .eco-chip {
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: #f9f6f3;
+      border: 1px solid var(--line);
+      margin-top: 10px;
+      line-height: 1.6;
+    }
+    .eco-chip b {
+      display: block;
+      color: var(--navy);
+      font-size: 14px;
+    }
+    .eco-chip span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .subhead {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 22px 0 18px;
+    }
+
+    .mini-icon-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .mini-icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-align: center;
+      padding: 22px 14px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      min-height: 146px;
+    }
+    .mini-icon svg {
+      width: 28px;
+      height: 28px;
+      color: var(--orange);
+    }
+    .mini-icon span {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.5;
+    }
+
+    .brand-strip {
+      background: linear-gradient(135deg, var(--navy), var(--navy-2));
+      color: var(--white);
+      padding: 28px 0;
+      overflow: hidden;
+    }
+    .marquee {
+      display: flex;
+      gap: 28px;
+      white-space: nowrap;
+      width: max-content;
+      animation: drift 22s linear infinite;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      opacity: 0.82;
+    }
+    @keyframes drift {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .category-bar {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin: 18px 0 20px;
+      scrollbar-width: thin;
+    }
+    .category-bar button {
+      border: 1px solid var(--line);
+      background: var(--white);
+      color: var(--muted);
+      font: inherit;
+      font-weight: 700;
+      padding: 10px 16px;
+      border-radius: 999px;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    .category-bar button.active {
+      background: var(--navy);
+      color: var(--white);
+      border-color: var(--navy);
+    }
+
+    .gallery-row {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(210px, 1fr);
+      gap: 16px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      scrollbar-width: thin;
+    }
+    .gallery-item {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .gallery-item .thumb {
+      display: grid;
+      place-items: center;
+      height: 220px;
+      background: linear-gradient(135deg, #f8f5f2, #edf4fb);
+      border-bottom: 1px solid var(--line);
+      position: relative;
+    }
+    .gallery-item .thumb::before {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border: 1px solid rgba(12,45,76,0.08);
+      border-radius: 14px;
+    }
+    .gallery-item .thumb svg {
+      position: relative;
+      width: 92px;
+      height: 92px;
+      color: var(--orange);
+      z-index: 1;
+    }
+    .gallery-item figcaption {
+      padding: 12px 14px 16px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .why-card {
+      padding: 22px 20px;
+    }
+    .why-card .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: var(--navy);
+      margin-bottom: 18px;
+    }
+    .why-card .icon svg { width: 22px; height: 22px; color: var(--white); }
+    .why-card h4 {
+      font-size: 17px;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .why-card .eng {
+      display: block;
+      color: var(--orange);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .why-card p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .contact-box {
+      background: var(--navy);
+      color: var(--white);
+      padding: 24px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .contact-box h4 {
+      font-size: 18px;
+      margin-bottom: 16px;
+    }
+    .contact-line {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 12px;
+      color: rgba(255,255,255,0.9);
+      font-size: 14px;
+    }
+    .contact-line svg {
+      width: 18px;
+      height: 18px;
+      color: var(--gold);
+      flex: none;
+      margin-top: 2px;
+    }
+    .socials {
+      display: flex;
+      gap: 10px;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+    .socials a {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,0.08);
+      color: var(--white);
+    }
+
+    .qr-box {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px;
+      text-align: center;
+    }
+    .qr-box .mini {
+      width: 62px;
+      height: 62px;
+      margin: 0 auto 14px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #edf3fb, #fff3dd);
+      display: grid;
+      place-items: center;
+    }
+    .qr-box .mini svg {
+      width: 22px;
+      height: 22px;
+      color: var(--navy);
+    }
+    .qr-box h4 {
+      color: var(--navy);
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+    .qr-box p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+    .qr-pattern {
+      width: 118px;
+      height: 118px;
+      margin: 0 auto;
+      background:
+        linear-gradient(#15263c 0 0) 0 0 / 12px 12px,
+        linear-gradient(#15263c 0 0) 0 0 / 12px 12px,
+        linear-gradient(#fff 0 0) 0 0 / 100% 100%;
+      border-radius: 10px;
+      box-shadow: inset 0 0 0 2px rgba(12,45,76,0.08);
+      opacity: 0.9;
+    }
+
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.75);
+      padding: 20px 0;
+      font-size: 14px;
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 960px) {
+      nav.main-nav { display: none; }
+      .hero-inner { grid-template-columns: 1fr; text-align: center; }
+      .hero p { margin-inline: auto; }
+      .hero-actions, .stats { justify-content: center; }
+      .eco-cols, .why-grid, .contact-cols { grid-template-columns: 1fr; }
+      .mini-icon-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .values-row { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 560px) {
+      .brand-wordmark .english { letter-spacing: 0.08em; }
+      .hero-inner { padding-top: 52px; }
+      .hero-badge-wrap { width: 96px; height: 96px; }
+      .values-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .mini-icon-grid { grid-template-columns: 1fr; }
+      .gallery-row { grid-auto-columns: minmax(160px, 72%); }
+    }
+  </style>
+</head>
+<body class="lang-ar">
+  <svg width="0" height="0" style="position:absolute;opacity:0;pointer-events:none">
+    <symbol id="icon-bulb" viewBox="0 0 24 24"><path d="M9 18h6M9 21h6M12 2a7 7 0 0 0-4 12.3c.5.4.9 1 .9 1.8v.9h6.2v-.9c0-.8.4-1.4.9-1.8A7 7 0 0 0 12 2Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-spark" viewBox="0 0 24 24"><path d="m12 2 2.7 6.3L21 11l-6.3 2.7L12 20l-2.7-6.3L3 11l6.3-2.7L12 2Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-factory" viewBox="0 0 24 24"><path d="M3 21V9l5 3V9l5 3V7l8 4v10H3ZM8 21v-3h3v3M15 21v-3h3v3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M3 12h18M12 3a13 13 0 0 1 0 18 13 13 0 0 1 0-18Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+    <symbol id="icon-store" viewBox="0 0 24 24"><path d="M4 9v11h16V9M3 9h18l-1.5-5h-15L3 9ZM10 14h4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24"><path d="M12 3 5 6v6c0 4.7 3 8 7 9 4-1 7-4.3 7-9V6l-7-3Zm-2.5 9 2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-pin" viewBox="0 0 24 24"><path d="M12 21s7-5.7 7-11a7 7 0 0 0-14 0c0 5.3 7 11 7 11Zm0-8.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-phone" viewBox="0 0 24 24"><path d="M7 4h3l1.5 5-2 1.8A12 12 0 0 0 15.2 18l1.8-2 5 1.5v3a2 2 0 0 1-2 2A17 17 0 0 1 5 6a2 2 0 0 1 2-2Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12 5 5L19 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-star" viewBox="0 0 24 24"><path d="m12 2.8 2.5 5.5 6.1.9-4.4 4.2 1 6-5.2-2.8-5.2 2.8 1-6-4.4-4.2 6.1-.9L12 2.8Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-briefcase" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M8 7V5.8A1.8 1.8 0 0 1 9.8 4h4.4A1.8 1.8 0 0 1 16 5.8V7M3 12h18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+    <symbol id="icon-box" viewBox="0 0 24 24"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Zm0 0v9m-8-4.5 8 4.5 8-4.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M4 19c1.5-3.2 4.1-4.8 8-4.8s6.5 1.6 8 4.8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+  </svg>
+
+  <header>
+    <div class="wrap header-inner">
+      <a href="#top" class="brand-mark" aria-label="Anwaar Althuraya Trading Co.">
+        <div class="brand-icon" aria-hidden="true">
+          <svg viewBox="0 0 200 200" role="img" aria-label="Anwaar Althuraya logo">
+            <defs>
+              <linearGradient id="g-red" x1="0%" x2="100%" y1="0%" y2="100%">
+                <stop offset="0%" stop-color="#f7a686"/>
+                <stop offset="100%" stop-color="#ee4a3d"/>
+              </linearGradient>
+              <linearGradient id="g-orange" x1="0%" x2="100%" y1="0%" y2="100%">
+                <stop offset="0%" stop-color="#f8d784"/>
+                <stop offset="100%" stop-color="#f4a828"/>
+              </linearGradient>
+              <linearGradient id="g-blue" x1="0%" x2="100%" y1="0%" y2="100%">
+                <stop offset="0%" stop-color="#6bb5f7"/>
+                <stop offset="100%" stop-color="#0d5fc5"/>
+              </linearGradient>
+            </defs>
+            <path d="M100 28 L153 81 L128 106 L100 78 L72 106 L47 81 Z" fill="none" stroke="url(#g-red)" stroke-width="13" stroke-linejoin="round"/>
+            <path d="M100 48 L136 85 L117 103 L100 85 L83 103 L64 85 Z" fill="none" stroke="url(#g-orange)" stroke-width="13" stroke-linejoin="round"/>
+            <path d="M100 73 L118 90 L100 108 L82 90 Z" fill="none" stroke="url(#g-blue)" stroke-width="13" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="brand-wordmark">
+          <span class="arabic">شركة أنوار الثريا للتجارة</span>
+          <span class="english">Anwaar Althuraya Trading Co.</span>
+        </div>
+      </a>
+
+      <nav class="main-nav">
+        <a href="#about" data-ar>من نحن</a>
+        <a href="#about" data-en>About</a>
+        <a href="#ecosystem" data-ar>مجالاتنا</a>
+        <a href="#ecosystem" data-en>Ecosystem</a>
+        <a href="#brands" data-ar>علاماتنا</a>
+        <a href="#brands" data-en>Brands</a>
+        <a href="#products" data-ar>المنتجات</a>
+        <a href="#products" data-en>Products</a>
+        <a href="#contact" data-ar>تواصل معنا</a>
+        <a href="#contact" data-en>Contact</a>
+      </nav>
+
+      <div class="lang-toggle">
+        <button type="button" class="active" onclick="setLang('ar')">العربية</button>
+        <button type="button" onclick="setLang('en')">English</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="wrap hero-inner">
+        <div class="hero-badge-wrap">
+          <div class="hero-badge">
+            <svg viewBox="0 0 200 200" aria-hidden="true">
+              <path d="M100 28 L153 81 L128 106 L100 78 L72 106 L47 81 Z" fill="none" stroke="#ef4947" stroke-width="13" stroke-linejoin="round"/>
+              <path d="M100 48 L136 85 L117 103 L100 85 L83 103 L64 85 Z" fill="none" stroke="#f9b742" stroke-width="13" stroke-linejoin="round"/>
+              <path d="M100 73 L118 90 L100 108 L82 90 Z" fill="none" stroke="#0d68c9" stroke-width="13" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+
+        <div>
+          <div class="eyebrow" data-ar>من نحن</div>
+          <div class="eyebrow" data-en>About us</div>
+          <h1 data-ar>شركة أنوار الثريا للتجارة</h1>
+          <h1 data-en>Anwaar Althuraya Trading Co.</h1>
+          <p data-ar>نقدم حلولاً تجارية متكاملة في الإنارة والمواد الكهربائية والمواد الصحية ومستلزمات المشاريع، مع تركيز على الجودة، الموثوقية، والتوزيع المتوازن في السوق.</p>
+          <p data-en>We provide integrated commercial solutions in lighting, electrical materials, sanitary products, and project supplies—driven by quality, reliability, and dependable market distribution.</p>
+
+          <div class="hero-actions">
+            <a href="#products" class="btn primary" data-ar>استعرض المنتجات</a>
+            <a href="#products" class="btn primary" data-en>View Products</a>
+            <a href="#contact" class="btn secondary" data-ar>تواصل معنا</a>
+            <a href="#contact" class="btn secondary" data-en>Contact Us</a>
+          </div>
+
+          <div class="stats">
+            <div class="stat"><b>12+</b> <span data-ar>سنوات خبرة</span><span data-en>Years of experience</span></div>
+            <div class="stat"><b>50+</b> <span data-ar>علامات تجارية</span><span data-en>Brands</span></div>
+            <div class="stat"><b>24/7</b> <span data-ar>خدمة موثوقة</span><span data-en>Reliable support</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker" data-ar>منظومة أعمالنا</div>
+          <div class="kicker" data-en>Our business</div>
+          <h2 data-ar>مظلة تجارية متكاملة للتصنيع والاستيراد والتوزيع</h2>
+          <h2 data-en>An integrated commercial umbrella for manufacturing, import, and distribution</h2>
+        </div>
+
+        <div class="mv-grid">
+          <div class="card mv-card mission">
+            <h3 data-ar>مهمتنا</h3>
+            <h3 data-en>Our Mission</h3>
+            <p data-ar>تلبية احتياجات السوق عبر منتجات موثوقة، حلول عملية، وخدمات تدعم المشاريع العقارية، التجارية، والسكنية.</p>
+            <p data-en>To meet market needs with reliable products, practical solutions, and services that support residential, commercial, and project demands.</p>
+          </div>
+          <div class="card mv-card vision">
+            <h3 data-ar>رؤيتنا</h3>
+            <h3 data-en>Our Vision</h3>
+            <p data-ar>أن نكون شريكاً موثوقاً في سلاسل التوريد المحلية والإقليمية، مع حضور قوي في التجزئة والمشاريع.</p>
+            <p data-en>To become a trusted partner in local and regional supply chains, with a strong presence in retail and project sectors.</p>
+          </div>
+        </div>
+
+        <div class="values-row">
+          <div class="value-item">
+            <div class="diamond"><svg viewBox="0 0 24 24"><use href="#icon-spark"/></svg></div>
+            <span data-ar>ابتكار</span><span data-en>Innovation</span>
+          </div>
+          <div class="value-item">
+            <div class="diamond"><svg viewBox="0 0 24 24"><use href="#icon-shield"/></svg></div>
+            <span data-ar>موثوقية</span><span data-en>Reliability</span>
+          </div>
+          <div class="value-item">
+            <div class="diamond"><svg viewBox="0 0 24 24"><use href="#icon-box"/></svg></div>
+            <span data-ar>تنوع</span><span data-en>Variety</span>
+          </div>
+          <div class="value-item">
+            <div class="diamond"><svg viewBox="0 0 24 24"><use href="#icon-check"/></svg></div>
+            <span data-ar>جودة</span><span data-en>Quality</span>
+          </div>
+          <div class="value-item">
+            <div class="diamond"><svg viewBox="0 0 24 24"><use href="#icon-briefcase"/></svg></div>
+            <span data-ar>مشاريع</span><span data-en>Projects</span>
+          </div>
+          <div class="value-item">
+            <div class="diamond"><svg viewBox="0 0 24 24"><use href="#icon-user"/></svg></div>
+            <span data-ar>خدمة</span><span data-en>Service</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ecosystem">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker" data-ar>أنشطتنا</div>
+          <div class="kicker" data-en>Our ecosystem</div>
+          <h2 data-ar>مظلة تجارية متكاملة للتصنيع، الاستيراد، والتوزيع</h2>
+          <h2 data-en>A complete business ecosystem covering manufacturing, import, and distribution</h2>
+        </div>
+
+        <div class="eco-cols">
+          <div class="card eco-col">
+            <div class="eco-col-head">
+              <svg viewBox="0 0 24 24"><use href="#icon-factory"/></svg>
+              <h3 data-ar>التصنيع المحلي</h3>
+              <h3 data-en>Local Manufacturing</h3>
+            </div>
+            <div class="eco-chip"><b data-ar>مصنع إنارة السماء</b><span data-ar>منتجات مصنعة محلياً</span><b data-en>Sky Light Factory</b><span data-en>Locally manufactured products</span></div>
+            <div class="eco-chip"><b>WEIJU</b><span data-ar>عروض مختارة لقطاع الإنارة</span><span data-en>Selected lighting and utility products</span></div>
+            <div class="eco-chip"><b>BFCO</b><span data-ar>حلول عملية ومتكاملة</span><span data-en>Practical and integrated solutions</span></div>
+          </div>
+
+          <div class="card eco-col">
+            <div class="eco-col-head">
+              <svg viewBox="0 0 24 24"><use href="#icon-globe"/></svg>
+              <h3 data-ar>الاستيراد</h3>
+              <h3 data-en>Import</h3>
+            </div>
+            <div class="eco-chip"><b>LUXGEN</b><span data-ar>منتجات إنارة ومعدات كهربائية</span><span data-en>Lighting and electrical products</span></div>
+            <div class="eco-chip"><b>OVER LIGHT</b><span data-ar>حلول إنارة اقتصادية موثوقة</span><span data-en>Reliable value lighting solutions</span></div>
+            <div class="eco-chip"><b>BFCO</b><span data-ar>أسواق متنوعة</span><span data-en>Multiple product markets</span></div>
+          </div>
+
+          <div class="card eco-col">
+            <div class="eco-col-head">
+              <svg viewBox="0 0 24 24"><use href="#icon-store"/></svg>
+              <h3 data-ar>التوزيع والتسويق</h3>
+              <h3 data-en>Distribution & Marketing</h3>
+            </div>
+            <div class="eco-chip"><b data-ar>شبكة فروع</b><span data-ar>تغطية واسعة في السوق</span><b data-en>Branch Network</b><span data-en>Wide market coverage</span></div>
+            <div class="eco-chip"><b data-ar>مستودعات مركزية</b><span data-ar>جاهزية مخزون عالية</span><b data-en>Central Warehouses</b><span data-en>High inventory readiness</span></div>
+            <div class="eco-chip"><b data-ar>المتجر الإلكتروني</b><span data-ar>بيع مباشر ومتاح عبر القنوات الرقمية</span><b data-en>E-commerce</b><span data-en>Direct sales through digital channels</span></div>
+          </div>
+        </div>
+
+        <div class="subhead" data-ar>مجالات الأعمال</div>
+        <div class="subhead" data-en>Business sectors</div>
+
+        <div class="mini-icon-grid">
+          <div class="mini-icon"><svg viewBox="0 0 24 24"><use href="#icon-bulb"/></svg><span data-ar>الإنارة</span><span data-en>Lighting</span></div>
+          <div class="mini-icon"><svg viewBox="0 0 24 24"><use href="#icon-spark"/></svg><span data-ar>الكهرباء</span><span data-en>Electrical</span></div>
+          <div class="mini-icon"><svg viewBox="0 0 24 24"><use href="#icon-box"/></svg><span data-ar>مواد البناء</span><span data-en>Building materials</span></div>
+          <div class="mini-icon"><svg viewBox="0 0 24 24"><use href="#icon-briefcase"/></svg><span data-ar>المشاريع</span><span data-en>Projects</span></div>
+          <div class="mini-icon"><svg viewBox="0 0 24 24"><use href="#icon-star"/></svg><span data-ar>المنتجات المتخصصة</span><span data-en>Specialized products</span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="brand-strip">
+      <div class="wrap">
+        <div class="marquee">
+          <span>WEIJU</span><span>BFCO</span><span>LUXGEN</span><span>OVER LIGHT</span>
+          <span>WEIJU</span><span>BFCO</span><span>LUXGEN</span><span>OVER LIGHT</span>
+        </div>
+      </div>
+    </div>
+
+    <section id="products">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker" data-ar>منتجاتنا</div>
+          <div class="kicker" data-en>Our products</div>
+          <h2 data-ar>مجموعة مختارة من المنتجات ذات الجودة والطلب العالي</h2>
+          <h2 data-en>A curated selection of high-demand, quality-driven products</h2>
+        </div>
+
+        <div class="category-bar">
+          <button class="active" type="button">الكل</button>
+          <button type="button">الإنارة</button>
+          <button type="button">الكهرباء</button>
+          <button type="button">السباكة</button>
+          <button type="button">مواد البناء</button>
+        </div>
+
+        <div class="gallery-row">
+          <figure class="gallery-item">
+            <div class="thumb"><svg viewBox="0 0 24 24"><use href="#icon-bulb"/></svg></div>
+            <figcaption>أضواء لوحة ومصابيح LED</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <div class="thumb"><svg viewBox="0 0 24 24"><use href="#icon-spark"/></svg></div>
+            <figcaption>مفاتيح ومعدات كهربائية</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <div class="thumb"><svg viewBox="0 0 24 24"><use href="#icon-box"/></svg></div>
+            <figcaption>مواد بناء واستعمالات منزلية</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <div class="thumb"><svg viewBox="0 0 24 24"><use href="#icon-briefcase"/></svg></div>
+            <figcaption>حلول لمشاريع التوريد</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <div class="thumb"><svg viewBox="0 0 24 24"><use href="#icon-star"/></svg></div>
+            <figcaption>منتجات متخصصة</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="why">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker" data-ar>لماذا نحن</div>
+          <div class="kicker" data-en>Why us</div>
+          <h2 data-ar>حلول موثوقة تعمل على دعم النمو والتميز</h2>
+          <h2 data-en>Reliable solutions designed to support growth and excellence</h2>
+        </div>
+
+        <div class="why-grid">
+          <div class="card why-card">
+            <div class="icon"><svg viewBox="0 0 24 24"><use href="#icon-shield"/></svg></div>
+            <h4 data-ar>ضمان الجودة</h4>
+            <h4 data-en>Quality assurance</h4>
+            <span class="eng">Quality</span>
+            <p data-ar>نضع معايير الجودة في أولوياتنا لضمان أداء مستقر وموثوق في كل منتج.</p>
+            <p data-en>We prioritize strict quality standards to ensure durable, dependable performance across our products.</p>
+          </div>
+          <div class="card why-card">
+            <div class="icon"><svg viewBox="0 0 24 24"><use href="#icon-store"/></svg></div>
+            <h4 data-ar>تغطية سوقية</h4>
+            <h4 data-en>Market reach</h4>
+            <span class="eng">Coverage</span>
+            <p data-ar>نصل إلى مختلف شرائح السوق عبر فروعنا، مستودعاتنا، وقنوات التوزيع المتكاملة.</p>
+            <p data-en>We serve multiple sectors via our branches, warehouses, and integrated distribution channels.</p>
+          </div>
+          <div class="card why-card">
+            <div class="icon"><svg viewBox="0 0 24 24"><use href="#icon-user"/></svg></div>
+            <h4 data-ar>خدمة عملاء</h4>
+            <h4 data-en>Customer care</h4>
+            <span class="eng">Support</span>
+            <p data-ar>نؤمن خدمة ودية وسريعة، مع دعم فني وتوصيل يراعي احتياجات كل عميل.</p>
+            <p data-en>We provide responsive, friendly service with technical support and delivery tailored to each client’s needs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker" data-ar>تواصل معنا</div>
+          <div class="kicker" data-en>Contact</div>
+          <h2 data-ar>نحن جاهزون لتلبية احتياجاتك</h2>
+          <h2 data-en>We are ready to meet your needs</h2>
+        </div>
+
+        <div class="contact-cols">
+          <div class="contact-box">
+            <h4 data-ar>معلومات التواصل</h4>
+            <h4 data-en>Contact information</h4>
+            <div class="contact-line"><svg viewBox="0 0 24 24"><use href="#icon-pin"/></svg><span data-ar>الرياض - المملكة العربية السعودية</span><span data-en>Riyadh, Saudi Arabia</span></div>
+            <div class="contact-line"><svg viewBox="0 0 24 24"><use href="#icon-phone"/></svg><span>+966 000 000 000</span></div>
+            <div class="contact-line"><svg viewBox="0 0 24 24"><use href="#icon-mail"/></svg><span>info@anwaar-althuraya.com</span></div>
+            <div class="socials">
+              <a href="#" aria-label="Facebook">f</a>
+              <a href="#" aria-label="Instagram">◎</a>
+              <a href="#" aria-label="LinkedIn">in</a>
+            </div>
+          </div>
+
+          <div class="qr-box">
+            <div class="mini"><svg viewBox="0 0 24 24"><use href="#icon-pin"/></svg></div>
+            <h4 data-ar>خدمة العملاء</h4>
+            <h4 data-en>Customer service</h4>
+            <p data-ar>تواصل معنا مباشرة</p>
+            <p data-en>Contact us directly</p>
+            <div class="qr-pattern"></div>
+          </div>
+
+          <div class="qr-box">
+            <div class="mini"><svg viewBox="0 0 24 24"><use href="#icon-arrow"/></svg></div>
+            <h4 data-ar>تأكيد الطلب</h4>
+            <h4 data-en>Order confirmation</h4>
+            <p data-ar>متوفر عند الطلب</p>
+            <p data-en>Available on request</p>
+            <div class="qr-pattern"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span data-ar>© 2026 شركة أنوار الثريا للتجارة</span>
+      <span data-en>© 2026 Anwaar Althuraya Trading Co.</span>
+      <span data-ar>جميع الحقوق محفوظة</span>
+      <span data-en>All rights reserved</span>
+    </div>
+  </footer>
+
+  <script>
+    function setLang(lang) {
+      document.body.classList.toggle('lang-ar', lang === 'ar');
+      document.body.classList.toggle('lang-en', lang === 'en');
+      const arBtn = document.querySelector('.lang-toggle button:nth-child(1)');
+      const enBtn = document.querySelector('.lang-toggle button:nth-child(2)');
+      arBtn.classList.toggle('active', lang === 'ar');
+      enBtn.classList.toggle('active', lang === 'en');
+    }
+  </script>
+</body>
+</html>
