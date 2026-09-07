@@ -320,7 +320,13 @@ section{ padding-block:64px; }
 /* ---------- CONTACT ---------- */
 .loc-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:44px; }
 @media (max-width:900px){ .loc-grid{ grid-template-columns:repeat(2,1fr); } }
-@media (max-width:560px){ .loc-grid{ grid-template-columns:1fr; } }
+@media (max-width:560px){
+  .loc-grid{ grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px; }
+  .loc-card{ padding:12px 7px; display:block; text-align:center; }
+  .loc-card .ic{ width:20px; height:20px; margin:0 auto 6px; }
+  .loc-card b{ font-size:10px; line-height:1.45; }
+  .loc-card span{ font-size:9px; line-height:1.35; }
+}
 .loc-card{ background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:18px; display:flex; gap:12px; align-items:flex-start; }
 .loc-card .ic{ color:var(--orange); flex:none; margin-top:2px; }
 .loc-card b{ display:block; font-size:13.5px; color:var(--navy); margin-bottom:2px; }
