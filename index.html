@@ -373,6 +373,7 @@ nav.main-nav a[data-active="true"]::after{ content:""; position:absolute; inset-
     overflow-x:hidden;
     justify-content:stretch;
     gap:6px;
+    transform:translateX(-8px);
     padding-bottom:6px;
     scrollbar-width:none;
     -webkit-overflow-scrolling:touch;
@@ -395,7 +396,7 @@ nav.main-nav a[data-active="true"]::after{ content:""; position:absolute; inset-
   .hero-stats .stat-chip:nth-child(4){ order:4; }
 }
 @media (max-width:380px){
-  .hero-stats{ gap:4px; }
+  .hero-stats{ gap:4px; transform:translateX(-5px); }
   .stat-chip{ padding-inline:2px; font-size:9.5px; }
   .stat-chip b{ font-size:12px; }
   .stat-chip .ic{ width:13px !important; height:13px !important; }
