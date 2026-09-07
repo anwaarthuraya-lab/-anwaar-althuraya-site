@@ -478,6 +478,7 @@ footer{ background:var(--navy-dark); color:#9fb2c6; padding-block:26px; font-siz
 @keyframes floatA{ 0%,100%{ transform:translate(0,0) scale(1);} 50%{ transform:translate(30px,-24px) scale(1.06);} }
 @keyframes floatB{ 0%,100%{ transform:translate(0,0) scale(1);} 50%{ transform:translate(-26px,20px) scale(1.08);} }
 @keyframes logoGlideLeft{ 0%,100%{ transform:translateX(0); } 50%{ transform:translateX(-18px); } }
+@keyframes driftingClouds{ from{ background-position:0 0; } to{ background-position:840px 0; } }
 @keyframes pulseGlow{ 0%,100%{ opacity:.55; filter:blur(0px);} 50%{ opacity:1; filter:blur(1px);} }
 @media (prefers-reduced-motion:reduce){ .hero-badge-wrap{ animation:none!important; } }
 @keyframes flicker{ 0%,19%,21%,23%,54%,56%,100%{ opacity:1;} 20%,22%,55%{ opacity:.4;} }
@@ -553,6 +554,22 @@ nav.main-nav a[data-active="true"]::after{ content:""; position:absolute; inset-
 .hero-diagonal{
   background:url("./anwaar-branch-front.png") center top/100% auto no-repeat!important;
 }
+.hero-diagonal::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity:.26;
+  background-image:
+    radial-gradient(ellipse 58px 22px at 90px 82px,rgba(255,255,255,.7) 0 46%,transparent 49%),
+    radial-gradient(ellipse 42px 28px at 125px 77px,rgba(255,255,255,.7) 0 46%,transparent 49%),
+    radial-gradient(ellipse 46px 25px at 158px 86px,rgba(255,255,255,.7) 0 46%,transparent 49%),
+    radial-gradient(ellipse 74px 25px at 300px 152px,rgba(255,255,255,.52) 0 46%,transparent 49%),
+    radial-gradient(ellipse 46px 30px at 350px 145px,rgba(255,255,255,.52) 0 46%,transparent 49%);
+  background-repeat:repeat-x;
+  background-size:420px 220px;
+  animation:driftingClouds 38s linear infinite;
+}
 @media (max-width:860px){
   .hero-copy{
     width:100%;
@@ -590,6 +607,9 @@ nav.main-nav a[data-active="true"]::after{ content:""; position:absolute; inset-
     right:0;
     height:1px;
     background:#dbe6ef;
+  }
+  @media (prefers-reduced-motion:reduce){
+    .hero-diagonal::before{ animation:none; }
   }
   .hero-badge-wrap{
     top:0;
