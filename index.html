@@ -367,6 +367,23 @@ nav.main-nav a[data-active="true"]::after{ content:""; position:absolute; inset-
   backdrop-filter:blur(4px);
 }
 .stat-chip b{ color:var(--gold); font-size:15px; }
+@media (max-width:900px){
+  .hero-stats{
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    justify-content:flex-start;
+    gap:8px;
+    padding-bottom:6px;
+    scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;
+  }
+  .hero-stats::-webkit-scrollbar{ display:none; }
+  .stat-chip{
+    flex:0 0 auto;
+    padding:8px 12px;
+    font-size:12px;
+  }
+}
 
 .scroll-cue{ position:absolute; bottom:22px; inset-inline-start:0; inset-inline-end:0; display:flex; justify-content:center; z-index:2; }
 .scroll-cue span{ width:26px; height:42px; border:2px solid rgba(255,255,255,.5); border-radius:14px; position:relative; display:block; }
