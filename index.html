@@ -34,6 +34,8 @@ body{
   font-family:'IBM Plex Sans Arabic','IBM Plex Sans',sans-serif;
   line-height:1.7;
   -webkit-font-smoothing:antialiased;
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
 }
 html[dir="ltr"] body{ font-family:'IBM Plex Sans','IBM Plex Sans Arabic',sans-serif; }
 
@@ -66,8 +68,10 @@ header{
 }
 .brand-mark{ display:flex; align-items:center; gap:12px; }
 .logo-diamond{ width:38px; height:38px; flex:none; }
-.brand-name{ font-size:15px; font-weight:700; line-height:1.3; }
-.brand-name small{ display:block; font-weight:500; font-size:11px; letter-spacing:.02em; color:#b9c7d8; }
+.brand-name{ display:flex; flex-direction:column; align-items:flex-start; gap:2px; font-size:15px; font-weight:700; line-height:1.3; }
+.brand-name span,
+.brand-name small{ display:block; }
+.brand-name small{ font-weight:500; font-size:11px; letter-spacing:.02em; color:#b9c7d8; }
 
 nav.main-nav{ display:flex; align-items:center; gap:22px; }
 nav.main-nav a{ font-size:14px; color:#dbe4ee; white-space:nowrap; padding-block:4px; border-bottom:2px solid transparent; transition:border-color .2s, color .2s; }
@@ -121,6 +125,22 @@ nav.main-nav a:hover{ color:#fff; border-color:var(--gold); }
   .hero-badge-wrap{ margin-inline:auto; }
   .hero-stats{ justify-content:center; }
 }
+@media (max-width: 430px){
+  .wrap{ padding-inline:16px; }
+  .header-inner{ padding-block:10px; }
+  .brand-mark{ gap:8px; }
+  .logo-diamond{ width:32px; height:32px; }
+  .brand-name{ font-size:12.6px; }
+  .brand-name small{ font-size:9px; }
+  .hero-copy h1{ font-size:clamp(26px,8vw,34px); }
+  .hero-copy p{ font-size:14px; }
+  .section-head h2{ font-size:clamp(22px,7vw,28px); }
+  .section{ padding-block:46px; }
+  .mini-icon-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+  .mini-icon{ padding:16px 10px; }
+  .mini-icon span{ font-size:12px; }
+  .gallery-item figcaption{ font-size:10.5px; }
+}
 
 /* ---------- SECTION SHELL ---------- */
 section{ padding-block:64px; }
@@ -144,7 +164,25 @@ section{ padding-block:64px; }
 /* ---------- VALUES ---------- */
 .values-row{ display:grid; grid-template-columns:repeat(6,1fr); gap:18px; }
 @media (max-width:900px){ .values-row{ grid-template-columns:repeat(3,1fr); } }
-@media (max-width:520px){ .values-row{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:520px){
+  .values-row{
+   display:flex;
+   flex-wrap:nowrap;
+   overflow-x:auto;
+   gap:12px;
+   grid-template-columns:none;
+   padding-bottom:8px;
+   scrollbar-width:none;
+   scroll-snap-type:x proximity;
+   -webkit-overflow-scrolling:touch;
+  }
+  .values-row::-webkit-scrollbar{ display:none; }
+  .value-item{
+   flex:0 0 150px;
+   min-width:130px;
+   scroll-snap-align:start;
+  }
+}
 .value-item{ display:flex; flex-direction:column; align-items:center; text-align:center; gap:12px; }
 .diamond{
   width:64px; height:64px; background:var(--navy); position:relative;
@@ -431,7 +469,70 @@ nav.main-nav a[data-active="true"]::after{ content:""; position:absolute; inset-
 .gallery-item:hover .thumb img{ transform:scale(1.08); }
 .gallery-item figcaption{ font-size:11.5px; line-height:1.5; color:var(--ink); padding:8px 10px 10px; text-align:center; min-height:2.9em; }
 .gallery-item{ margin:0; }
-@media (max-width:560px){ .gallery-grid{ grid-template-columns:repeat(auto-fill, minmax(120px,1fr)); } }
+@media (max-width:560px){
+  .cat-tabs{
+    display:flex !important;
+    flex-wrap:nowrap !important;
+    overflow-x:auto !important;
+    overflow-y:hidden !important;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    padding:2px 2px 8px;
+    margin:0 0 16px;
+    scroll-snap-type:x proximity;
+    gap:10px;
+    direction:rtl;
+    white-space:nowrap;
+  }
+  .cat-tabs::-webkit-scrollbar{ display:none; }
+  .cat-tab{
+    flex:0 0 auto !important;
+    min-width:120px;
+    scroll-snap-align:start;
+    font-size:13px;
+    padding:10px 16px;
+    border-radius:999px;
+    background:#f7f3ef;
+    color:#1a2c41;
+    border:1px solid #d9d0ca;
+    box-shadow:none;
+    justify-content:center;
+  }
+  .cat-tab .ic{ width:14px; height:14px; }
+  .cat-tab .n{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:20px;
+    padding:2px 6px;
+    border-radius:999px;
+    font-size:11px;
+    background:rgba(20,36,56,0.06);
+    color:inherit;
+    opacity:1;
+  }
+  .cat-tab.active{
+    background:#ea4a3c;
+    border-color:#ea4a3c;
+    color:#fff;
+    box-shadow:0 8px 18px rgba(234,74,60,0.2);
+  }
+  .cat-tab.active .n{
+    background:rgba(255,255,255,0.14);
+    color:#fff;
+  }
+  .gallery-grid{
+    display:grid;
+    grid-auto-flow:column;
+    grid-auto-columns:minmax(150px, 72%);
+    overflow-x:auto;
+    padding-bottom:8px;
+    scrollbar-width:none;
+    scroll-snap-type:x proximity;
+  }
+  .gallery-grid::-webkit-scrollbar{ display:none; }
+  .gallery-item{ scroll-snap-align:start; }
+}
 
 /* ---------- CATEGORY TABS + GROUPS ---------- */
 .cat-tabs{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom:28px; }
@@ -527,8 +628,8 @@ nav.main-nav a[data-active="true"]::after{ content:""; position:absolute; inset-
       <div class="brand-name">
         <span data-ar>شركة أنوار الثريا للتجارة</span>
         <span data-en>Anwaar Althuraya Trading Co.</span>
-        <small data-ar>ANWAAR ALTHURAYA TRADING CO.</small>
-        <small data-en>شركة أنوار الثريا للتجارة</small>
+        <small data-ar>ANWAAR ALTHURAYA</small>
+        <small data-en>ANWAAR ALTHURAYA</small>
       </div>
     </a>
     <nav class="main-nav" id="mainNav">
@@ -1083,6 +1184,54 @@ document.querySelectorAll('nav.main-nav a').forEach(function(a){
 });
 
 /* ---- product gallery category filtering ---- */
+var mobileGalleryCache = new WeakMap();
+
+function applyMobileAllGallery(galleryId){
+  if (window.innerWidth > 560) return;
+  var groupsWrap = document.querySelector('.cat-groups[data-gallery="'+galleryId+'"]');
+  if(!groupsWrap) return;
+  var groups = Array.from(groupsWrap.querySelectorAll('.cat-group'));
+  if (!groups.length) return;
+  var firstGrid = groups[0].querySelector('.gallery-grid');
+  if (!firstGrid) return;
+
+  var allItems = [];
+  groups.forEach(function(group){
+    var head = group.querySelector('.cat-group-head');
+    if (head) head.style.display = 'none';
+    var grid = group.querySelector('.gallery-grid');
+    if (grid) {
+      var items = Array.from(grid.querySelectorAll('.gallery-item'));
+      mobileGalleryCache.set(group, items.slice());
+      items.forEach(function(item){ allItems.push(item); });
+      grid.innerHTML = '';
+    }
+    group.style.display = 'block';
+  });
+
+  firstGrid.innerHTML = '';
+  allItems.forEach(function(item){ firstGrid.appendChild(item); });
+  groups.slice(1).forEach(function(group){ group.style.display = 'none'; });
+}
+
+function resetMobileAllGallery(galleryId){
+  if (window.innerWidth > 560) return;
+  var groupsWrap = document.querySelector('.cat-groups[data-gallery="'+galleryId+'"]');
+  if(!groupsWrap) return;
+  var groups = Array.from(groupsWrap.querySelectorAll('.cat-group'));
+  if (!groups.length) return;
+  groups.forEach(function(group){
+    var head = group.querySelector('.cat-group-head');
+    if (head) head.style.display = '';
+    var grid = group.querySelector('.gallery-grid');
+    if (grid && mobileGalleryCache.has(group)) {
+      grid.innerHTML = '';
+      mobileGalleryCache.get(group).forEach(function(item){ grid.appendChild(item); });
+      group.style.display = '';
+    }
+  });
+}
+
 function filterGallery(btn, galleryId){
   var tabsWrap = btn.closest('.cat-tabs');
   tabsWrap.querySelectorAll('.cat-tab').forEach(function(t){ t.classList.remove('active'); });
@@ -1090,10 +1239,44 @@ function filterGallery(btn, galleryId){
   var cat = btn.getAttribute('data-cat');
   var groupsWrap = document.querySelector('.cat-groups[data-gallery="'+galleryId+'"]');
   if(!groupsWrap) return;
+
+  if (window.innerWidth <= 560) {
+    if (cat === 'all') {
+      applyMobileAllGallery(galleryId);
+      return;
+    }
+    resetMobileAllGallery(galleryId);
+  }
+
   groupsWrap.querySelectorAll('.cat-group').forEach(function(g){
-    g.style.display = (cat === 'all' || g.getAttribute('data-cat') === cat) ? '' : 'none';
+    var isMatch = (cat === 'all' || g.getAttribute('data-cat') === cat);
+    g.style.display = isMatch ? '' : 'none';
+    var head = g.querySelector('.cat-group-head');
+    if (head) head.style.display = '';
   });
 }
+
+window.addEventListener('resize', function(){
+  document.querySelectorAll('.cat-tabs').forEach(function(tabsWrap){
+    var active = tabsWrap.querySelector('.cat-tab.active');
+    if (!active) return;
+    var galleryId = tabsWrap.getAttribute('data-gallery');
+    if (window.innerWidth <= 560 && active.getAttribute('data-cat') === 'all') {
+      applyMobileAllGallery(galleryId);
+    } else if (window.innerWidth > 560) {
+      resetMobileAllGallery(galleryId);
+    }
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('.cat-tabs').forEach(function(tabsWrap){
+    var active = tabsWrap.querySelector('.cat-tab.active');
+    if (active && active.getAttribute('data-cat') === 'all') {
+      applyMobileAllGallery(tabsWrap.getAttribute('data-gallery'));
+    }
+  });
+});
 </script>
 </body>
 </html>
