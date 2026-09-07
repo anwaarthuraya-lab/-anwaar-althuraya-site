@@ -532,6 +532,25 @@ nav.main-nav a[data-active="true"]::after{ content:""; position:absolute; inset-
   }
   .gallery-grid::-webkit-scrollbar{ display:none; }
   .gallery-item{ scroll-snap-align:start; }
+  .cat-groups.mobile-all{
+    display:flex;
+    gap:12px;
+    overflow-x:auto;
+    padding-bottom:8px;
+    scrollbar-width:none;
+    scroll-snap-type:x proximity;
+  }
+  .cat-groups.mobile-all::-webkit-scrollbar{ display:none; }
+  .cat-groups.mobile-all .cat-group,
+  .cat-groups.mobile-all .gallery-grid{
+    display:contents !important;
+  }
+  .cat-groups.mobile-all .cat-group-head{ display:none; }
+  .cat-groups.mobile-all .gallery-item{
+    flex:0 0 72%;
+    width:72%;
+    scroll-snap-align:start;
+  }
 }
 
 /* ---------- CATEGORY TABS + GROUPS ---------- */
@@ -1191,6 +1210,7 @@ function filterGallery(btn, galleryId){
   var cat = btn.getAttribute('data-cat');
   var groupsWrap = document.querySelector('.cat-groups[data-gallery="'+galleryId+'"]');
   if(!groupsWrap) return;
+  groupsWrap.classList.toggle('mobile-all', window.innerWidth <= 560 && cat === 'all');
 
   groupsWrap.querySelectorAll('.cat-group').forEach(function(g){
     var isMatch = (cat === 'all' || g.getAttribute('data-cat') === cat);
@@ -1199,6 +1219,26 @@ function filterGallery(btn, galleryId){
     if (head) head.style.display = '';
   });
 }
+
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('.cat-tabs').forEach(function(tabsWrap){
+    var active = tabsWrap.querySelector('.cat-tab.active');
+    var groupsWrap = document.querySelector('.cat-groups[data-gallery="'+tabsWrap.getAttribute('data-gallery')+'"]');
+    if (active && groupsWrap && active.getAttribute('data-cat') === 'all' && window.innerWidth <= 560) {
+      groupsWrap.classList.add('mobile-all');
+    }
+  });
+});
+
+window.addEventListener('resize', function(){
+  document.querySelectorAll('.cat-tabs').forEach(function(tabsWrap){
+    var active = tabsWrap.querySelector('.cat-tab.active');
+    var groupsWrap = document.querySelector('.cat-groups[data-gallery="'+tabsWrap.getAttribute('data-gallery')+'"]');
+    if (active && groupsWrap) {
+      groupsWrap.classList.toggle('mobile-all', window.innerWidth <= 560 && active.getAttribute('data-cat') === 'all');
+    }
+  });
+});
 
 
 </script>
