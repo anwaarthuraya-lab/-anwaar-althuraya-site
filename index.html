@@ -1185,11 +1185,13 @@ document.querySelectorAll('nav.main-nav a').forEach(function(a){
 
 /* ---- product gallery category filtering ---- */
 var mobileGalleryCache = new WeakMap();
+var mobileGalleryAllApplied = new WeakSet();
 
 function applyMobileAllGallery(galleryId){
   if (window.innerWidth > 560) return;
   var groupsWrap = document.querySelector('.cat-groups[data-gallery="'+galleryId+'"]');
   if(!groupsWrap) return;
+  if (mobileGalleryAllApplied.has(groupsWrap)) return;
   var groups = Array.from(groupsWrap.querySelectorAll('.cat-group'));
   if (!groups.length) return;
   var firstGrid = groups[0].querySelector('.gallery-grid');
@@ -1212,10 +1214,10 @@ function applyMobileAllGallery(galleryId){
   firstGrid.innerHTML = '';
   allItems.forEach(function(item){ firstGrid.appendChild(item); });
   groups.slice(1).forEach(function(group){ group.style.display = 'none'; });
+  mobileGalleryAllApplied.add(groupsWrap);
 }
 
 function resetMobileAllGallery(galleryId){
-  if (window.innerWidth > 560) return;
   var groupsWrap = document.querySelector('.cat-groups[data-gallery="'+galleryId+'"]');
   if(!groupsWrap) return;
   var groups = Array.from(groupsWrap.querySelectorAll('.cat-group'));
@@ -1230,6 +1232,7 @@ function resetMobileAllGallery(galleryId){
       group.style.display = '';
     }
   });
+  mobileGalleryAllApplied.delete(groupsWrap);
 }
 
 function filterGallery(btn, galleryId){
