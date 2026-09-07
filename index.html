@@ -159,7 +159,13 @@ section{ padding-block:64px; }
 .mv-card .ic{ width:34px; height:34px; margin-bottom:16px; }
 .mv-card h3{ font-size:20px; margin-bottom:14px; }
 .mv-card p{ font-size:15px; opacity:.92; }
-@media (max-width:760px){ .mv-grid{ grid-template-columns:1fr; } }
+@media (max-width:760px){
+  .mv-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+  .mv-card{ padding:18px 12px; }
+  .mv-card .ic{ width:28px; height:28px; margin-bottom:10px; }
+  .mv-card h3{ font-size:17px; margin-bottom:8px; }
+  .mv-card p{ font-size:12px; line-height:1.8; }
+}
 
 /* ---------- VALUES ---------- */
 .values-row{ display:grid; grid-template-columns:repeat(6,1fr); gap:18px; }
