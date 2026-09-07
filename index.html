@@ -222,6 +222,13 @@ section{ padding-block:64px; }
 .mini-icon{ background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:22px 14px; text-align:center; }
 .mini-icon .ic{ margin-inline:auto; color:var(--navy); width:30px; height:30px; margin-bottom:12px; }
 .mini-icon span{ font-size:13.5px; font-weight:600; }
+.deliver-grid{ grid-template-columns:repeat(3,1fr); }
+@media (max-width:760px){ .deliver-grid{ grid-template-columns:repeat(3,1fr); gap:10px; } }
+@media (max-width:520px){
+  .deliver-grid .mini-icon{ padding:16px 6px; }
+  .deliver-grid .mini-icon .ic{ width:24px; height:24px; margin-bottom:8px; }
+  .deliver-grid .mini-icon span{ font-size:10.5px; line-height:1.4; }
+}
 
 /* ---------- FACTORY ---------- */
 .factory-visual{
@@ -1135,12 +1142,13 @@ nav.main-nav a[data-active="true"]::after{ content:""; position:absolute; inset-
     </div>
 
     <div class="subhead"><span data-ar>ما الذي نقدمه لك؟</span><span data-en>What We Deliver To You?</span></div>
-    <div class="mini-icon-grid">
+    <div class="mini-icon-grid deliver-grid">
       <div class="mini-icon"><svg class="ic"><use href="#i-box"/></svg><span data-ar>تنوع المنتجات</span><span data-en>Product Variety</span></div>
       <div class="mini-icon"><svg class="ic"><use href="#i-puzzle"/></svg><span data-ar>حلول عملية متكاملة</span><span data-en>Practical Integrated Solutions</span></div>
       <div class="mini-icon"><svg class="ic"><use href="#i-rocket"/></svg><span data-ar>توريد سريع وموثوق</span><span data-en>Fast & Reliable Supply</span></div>
       <div class="mini-icon"><svg class="ic"><use href="#i-users"/></svg><span data-ar>خدمة عملاء احترافية</span><span data-en>Professional Customer Service</span></div>
       <div class="mini-icon"><svg class="ic"><use href="#i-handshake"/></svg><span data-ar>شراكة طويلة الأمد</span><span data-en>Long-Term Partnership</span></div>
+      <div class="mini-icon"><svg class="ic"><use href="#i-medal"/></svg><span data-ar>جودة موثوقة</span><span data-en>Trusted Quality</span></div>
     </div>
   </div>
 </section>
