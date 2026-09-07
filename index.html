@@ -121,7 +121,8 @@ nav.main-nav a:hover{ color:#fff; border-color:var(--gold); }
 .hero-copy h1{ font-size:clamp(30px,4vw,44px); line-height:1.25; margin-bottom:22px; }
 .hero-copy p{ font-size:16.5px; color:#d7e2ef; margin-bottom:14px; max-width:60ch; }
 @media (max-width: 860px){
-  .hero-inner{ grid-template-columns:1fr; padding-block:52px 40px; text-align:center; }
+  .hero{ min-height:auto; padding-block:0; }
+  .hero-inner{ grid-template-columns:1fr; padding-block:28px 40px; text-align:center; }
   .hero-badge-wrap{ margin-inline:auto; }
   .hero-stats{ justify-content:center; }
 }
@@ -338,6 +339,7 @@ nav.main-nav a[data-active="true"]::after{ content:""; position:absolute; inset-
 
 /* ---------- HERO 2.0 ---------- */
 .hero{ min-height:92vh; display:flex; align-items:center; }
+@media (max-width:860px){ .hero{ min-height:auto; padding-block:0; } }
 .hero-diagonal{ background:
     radial-gradient(60% 55% at 18% 22%, rgba(232,98,44,.35), transparent 60%),
     radial-gradient(55% 50% at 82% 78%, rgba(47,95,168,.4), transparent 60%),
