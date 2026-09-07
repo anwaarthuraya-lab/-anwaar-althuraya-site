@@ -71,6 +71,7 @@ header{
 .brand-name{ display:flex; flex-direction:column; align-items:flex-start; gap:2px; font-size:15px; font-weight:700; line-height:1.3; }
 .brand-name span,
 .brand-name small{ display:block; }
+.brand-name span{ white-space:nowrap; }
 .brand-name small{ font-weight:500; font-size:11px; letter-spacing:.02em; color:#b9c7d8; }
 
 nav.main-nav{ display:flex; align-items:center; gap:22px; }
@@ -89,6 +90,7 @@ nav.main-nav a:hover{ color:#fff; border-color:var(--gold); }
 .lang-toggle .flag{ font-size:15px; line-height:1; }
 
 .nav-toggle-btn{ display:none; background:none; border:none; color:#fff; width:34px; height:34px; cursor:pointer; }
+.section-tabs{ display:none; }
 
 @media (max-width: 900px){
   nav.main-nav{
@@ -97,6 +99,31 @@ nav.main-nav a:hover{ color:#fff; border-color:var(--gold); }
     padding:10px 24px 18px; gap:2px; display:none;
     border-bottom:1px solid rgba(255,255,255,0.08);
   }
+  .section-tabs{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 16px;
+    overflow-x:auto;
+    white-space:nowrap;
+    background:#fff;
+    border-bottom:1px solid var(--line);
+    box-shadow:0 3px 10px rgba(10,58,92,.05);
+    scrollbar-width:none;
+  }
+  .section-tabs::-webkit-scrollbar{ display:none; }
+  .section-tabs a{
+    flex:none;
+    padding:7px 12px;
+    border:1px solid #d7e2ed;
+    border-radius:999px;
+    color:var(--navy);
+    background:#f8fbfd;
+    font-size:11px;
+    font-weight:700;
+    text-decoration:none;
+  }
+  .section-tabs a:first-child{ color:#fff; border-color:var(--navy); background:var(--navy); }
   nav.main-nav.open{ display:flex; }
   nav.main-nav a{ padding-block:10px; border-bottom:1px solid rgba(255,255,255,0.06); }
   .nav-toggle-btn{ display:block; }
@@ -133,7 +160,7 @@ nav.main-nav a:hover{ color:#fff; border-color:var(--gold); }
   .logo-diamond{ width:32px; height:32px; }
   .brand-name{ font-size:12.6px; }
   .brand-name small{ font-size:9px; }
-  .hero-copy h1{ font-size:clamp(26px,8vw,34px); }
+  .hero-copy h1{ font-size:clamp(28px,8.5vw,36px); }
   .hero-copy p{ font-size:14px; }
   .section-head h2{ font-size:clamp(22px,7vw,28px); }
   .section{ padding-block:46px; }
@@ -218,7 +245,24 @@ section{ padding-block:64px; }
 .eco-chip span{ font-size:12.5px; color:var(--ink-soft); }
 
 .mini-icon-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:16px; }
-@media (max-width:760px){ .mini-icon-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:760px){
+  .mini-icon-grid{ grid-template-columns:repeat(2,1fr); }
+  .business-sectors .mini-icon:first-child{
+    grid-column:1 / -1;
+    background:linear-gradient(135deg,var(--navy),#145b84);
+    border-color:#1f6d96;
+    box-shadow:0 12px 24px rgba(10,58,92,.22);
+  }
+  .business-sectors .mini-icon:first-child .ic{ color:var(--orange); }
+  .business-sectors .mini-icon:first-child span{ color:#fff; }
+  .factory-capabilities .mini-icon:first-child{
+    grid-column:1 / -1;
+    background:linear-gradient(135deg,#f8fbfe,#e5f0f8);
+    border-color:#9bbcd1;
+    box-shadow:0 10px 20px rgba(10,58,92,.12);
+  }
+  .factory-capabilities .mini-icon:first-child .ic{ color:var(--orange); }
+}
 .mini-icon{ background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:22px 14px; text-align:center; }
 .mini-icon .ic{ margin-inline:auto; color:var(--navy); width:30px; height:30px; margin-bottom:12px; }
 .mini-icon span{ font-size:13.5px; font-weight:600; }
@@ -233,12 +277,25 @@ section{ padding-block:64px; }
 /* ---------- FACTORY ---------- */
 .factory-visual{
   border-radius:var(--radius); overflow:hidden; border:1px solid var(--line);
-  background:linear-gradient(135deg,#eef3f8,#dde6f0);
-  display:grid; place-items:center; padding:30px; margin-bottom:36px;
+  min-height:260px; margin-bottom:36px;
 }
-.factory-visual svg{ width:100%; max-width:560px; height:auto; }
+.factory-visual img{ display:block; width:100%; height:100%; object-fit:cover; }
 .factory-cols{ display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:start; margin-bottom:40px; }
-@media (max-width:860px){ .factory-cols{ grid-template-columns:1fr; } }
+@media (max-width:860px){
+  .factory-cols{ grid-template-columns:1fr; gap:24px; margin-bottom:12px; }
+  .factory-visual{ margin-bottom:0; }
+}
+.factory-title{ white-space:nowrap; font-size:clamp(19px,4.5vw,29px)!important; }
+.factory-areas{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; margin:0 0 28px; }
+.factory-area{ position:relative; margin:0; overflow:hidden; border:1px solid var(--line); border-radius:var(--radius); background:#fff; box-shadow:0 6px 16px rgba(10,58,92,.06); }
+.factory-area img{ display:block; width:100%; height:200px; object-fit:cover; object-position:top; transform:scale(1.07); }
+.factory-area figcaption{ position:absolute; inset-inline:0; bottom:0; padding:18px 14px 10px; color:#fff; font-size:14px; font-weight:700; text-shadow:0 1px 3px rgba(0,0,0,.6); background:linear-gradient(transparent,rgba(7,27,48,.72)); }
+@media (max-width:520px){
+  .factory-areas{ gap:10px; margin-bottom:24px; }
+  .factory-area{ border-radius:12px; }
+  .factory-area img{ height:162px; }
+  .factory-area figcaption{ padding:18px 9px 8px; font-size:11px; }
+}
 
 /* ---------- BRAND SECTIONS ---------- */
 .brand-section{ border-top:1px solid var(--line); }
@@ -252,6 +309,38 @@ section{ padding-block:64px; }
 .brand-copy p{ margin-bottom:10px; color:var(--ink-soft); font-size:15px; }
 .subhead{ font-size:14px; font-weight:700; color:var(--navy); margin-bottom:16px; display:flex; align-items:center; gap:8px; }
 .subhead::before{ content:""; width:16px; height:2px; background:var(--brand); display:inline-block; }
+.brand-section .subhead{
+  width:fit-content; margin:0 auto 20px; padding:9px 16px;
+  color:var(--brand); background:#fff; border:1px solid var(--brand);
+  border-radius:999px; box-shadow:0 6px 14px rgba(10,58,92,.08);
+  white-space:nowrap;
+}
+.brand-section .subhead::before{ width:7px; height:7px; border-radius:50%; }
+.brand-product-banner{
+  display:flex; align-items:center; gap:14px; padding:16px 20px; margin-bottom:20px;
+  color:#fff; background:linear-gradient(135deg,var(--brand),color-mix(in srgb,var(--brand) 76%,#071f35));
+  border-radius:14px; box-shadow:0 10px 20px color-mix(in srgb,var(--brand) 22%,transparent);
+}
+.brand-product-banner .ic{ width:28px; height:28px; flex:none; }
+.brand-product-banner b,.brand-product-banner span{ display:block; }
+.brand-product-banner b{ font-size:15px; margin-bottom:3px; }
+.brand-product-banner span{ font-size:12.5px; opacity:.85; }
+.brand-catalog-actions{ display:flex; flex-wrap:wrap; gap:10px; margin:-4px 0 24px; }
+.catalog-action{
+  display:inline-flex; align-items:center; justify-content:center; min-height:38px; padding:8px 15px;
+  border:1px solid var(--brand); border-radius:999px; color:var(--brand); background:#fff;
+  font-size:12px; font-weight:700; text-decoration:none; transition:background .2s,color .2s,transform .2s;
+}
+.catalog-action.primary{ background:var(--brand); color:#fff; }
+.catalog-action:hover{ transform:translateY(-2px); }
+.catalog-action:not(.primary):hover{ background:color-mix(in srgb,var(--brand) 9%,#fff); }
+@media (max-width:560px){
+  .brand-product-banner{ padding:14px 16px; }
+  .brand-product-banner b{ font-size:14px; }
+  .brand-product-banner span{ font-size:11.5px; }
+  .brand-catalog-actions{ gap:8px; margin-bottom:20px; }
+  .catalog-action{ min-height:34px; padding:7px 12px; font-size:10.5px; }
+}
 .product-grid{ display:grid; grid-template-columns:repeat(6,1fr); gap:14px; margin-bottom:36px; }
 @media (max-width:960px){ .product-grid{ grid-template-columns:repeat(3,1fr); } }
 @media (max-width:560px){ .product-grid{ grid-template-columns:repeat(2,1fr); } }
@@ -265,6 +354,13 @@ section{ padding-block:64px; }
 .strength-diamond{ width:56px; height:56px; background:var(--brand); transform:rotate(45deg); border-radius:8px; display:flex; align-items:center; justify-content:center; margin:0 auto 14px; }
 .strength-diamond .ic{ transform:rotate(-45deg); color:#fff; width:24px; height:24px; }
 .strength-item span{ font-size:12.5px; font-weight:600; }
+@media (max-width:560px){
+  .brand-section .strength-row{ grid-template-columns:repeat(5,minmax(0,1fr)); gap:4px; }
+  .brand-section .strength-item{ padding:10px 2px; }
+  .brand-section .strength-diamond{ width:40px; height:40px; margin-bottom:10px; border-radius:6px; }
+  .brand-section .strength-diamond .ic{ width:18px; height:18px; }
+  .brand-section .strength-item span{ font-size:9.5px; line-height:1.35; }
+}
 
 /* ---------- SECTORS ---------- */
 .sector-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-bottom:40px; }
@@ -321,11 +417,12 @@ section{ padding-block:64px; }
 .loc-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:44px; }
 @media (max-width:900px){ .loc-grid{ grid-template-columns:repeat(2,1fr); } }
 @media (max-width:560px){
-  .loc-grid{ grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px; }
-  .loc-card{ padding:12px 7px; display:block; text-align:center; }
-  .loc-card .ic{ width:20px; height:20px; margin:0 auto 6px; }
-  .loc-card b{ font-size:10px; line-height:1.45; }
-  .loc-card span{ font-size:9px; line-height:1.35; }
+  .loc-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+  .loc-card{ min-height:94px; padding:12px 10px; gap:8px; }
+  .loc-card .ic{ width:20px; height:20px; }
+  .loc-card > div{ transform:translateX(8px); }
+  .loc-card b{ font-size:10.5px; line-height:1.45; white-space:nowrap; }
+  .loc-card span{ font-size:10.5px; line-height:1.45; }
 }
 .loc-card{ background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:18px; display:flex; gap:12px; align-items:flex-start; }
 .loc-card .ic{ color:var(--orange); flex:none; margin-top:2px; }
@@ -341,14 +438,26 @@ section{ padding-block:64px; }
 .social-row{ display:flex; gap:10px; margin-top:16px; flex-wrap:wrap; }
 .social-row a{ width:34px; height:34px; border-radius:50%; background:rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; font-size:12px; color:#fff; }
 .qr-box{ background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:24px; text-align:center; }
+.qr-link{ display:block; color:inherit; text-decoration:none; }
 .qr-box .ic-wrap{ width:52px; height:52px; border-radius:10px; background:#eaf1fb; display:flex; align-items:center; justify-content:center; margin:0 auto 14px; }
 .qr-box .ic{ color:var(--navy); }
 .qr-box h4{ font-size:14.5px; color:var(--navy); margin-bottom:8px; }
 .qr-box p{ font-size:12.5px; color:var(--ink-soft); margin-bottom:16px; }
-.qr-deco{ width:110px; height:110px; margin:0 auto; background:
-  repeating-linear-gradient(0deg, var(--navy) 0 4px, transparent 4px 8px),
-  repeating-linear-gradient(90deg, var(--navy) 0 4px, transparent 4px 8px);
-  background-blend-mode:multiply; opacity:.85; border-radius:4px;
+.qr-link{ border-color:#cbddec; box-shadow:0 8px 20px rgba(10,58,92,.07); }
+.shop-cta{ display:inline-flex; align-items:center; justify-content:center; gap:6px; min-height:34px; padding:8px 16px; border-radius:999px; background:var(--navy); color:#fff; font-size:12px; font-weight:700; transition:background .2s ease,transform .2s ease; }
+.qr-link:hover .shop-cta{ background:#174d7d; transform:translateY(-1px); }
+.catalog-qr-card{ display:block; color:inherit; text-decoration:none; }
+.catalog-qr-card .ic-wrap{ background:#fff3dc; }
+.catalog-qr-card .ic{ color:var(--orange); }
+@media (max-width:560px){
+  .contact-cols{ grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+  .contact-box{ grid-column:1 / -1; }
+  .qr-link,.catalog-qr-card{ grid-column:1 / -1; }
+  .qr-box{ padding:16px 10px; }
+  .qr-box .ic-wrap{ width:42px; height:42px; margin-bottom:10px; }
+  .qr-box h4{ font-size:12.5px; margin-bottom:6px; }
+  .qr-box p{ min-height:34px; font-size:10.5px; line-height:1.5; margin-bottom:10px; }
+  .shop-cta{ min-height:30px; padding:6px 14px; font-size:10.5px; }
 }
 
 .thanks-band{ text-align:center; padding-block:50px; background:var(--paper); border-top:1px solid var(--line); }
@@ -368,14 +477,16 @@ footer{ background:var(--navy-dark); color:#9fb2c6; padding-block:26px; font-siz
 ===================================================== */
 @keyframes floatA{ 0%,100%{ transform:translate(0,0) scale(1);} 50%{ transform:translate(30px,-24px) scale(1.06);} }
 @keyframes floatB{ 0%,100%{ transform:translate(0,0) scale(1);} 50%{ transform:translate(-26px,20px) scale(1.08);} }
+@keyframes logoGlideLeft{ 0%,100%{ transform:translateX(0); } 50%{ transform:translateX(-18px); } }
 @keyframes pulseGlow{ 0%,100%{ opacity:.55; filter:blur(0px);} 50%{ opacity:1; filter:blur(1px);} }
+@media (prefers-reduced-motion:reduce){ .hero-badge-wrap{ animation:none!important; } }
 @keyframes flicker{ 0%,19%,21%,23%,54%,56%,100%{ opacity:1;} 20%,22%,55%{ opacity:.4;} }
 @keyframes logoReveal{ 0%{ opacity:0; transform:translateY(18px) scale(.72) rotate(-8deg); filter:drop-shadow(0 0 0 rgba(252,185,45,0)); } 65%{ opacity:1; transform:translateY(-3px) scale(1.04) rotate(2deg); filter:drop-shadow(0 0 22px rgba(252,185,45,.85)); } 100%{ opacity:1; transform:translateY(0) scale(1) rotate(0); filter:drop-shadow(0 0 8px rgba(252,185,45,.35)); } }
 @keyframes logoFloat{ 0%,100%{ transform:translateY(0) rotate(0); } 50%{ transform:translateY(-12px) rotate(1.5deg); } }
 @keyframes bounceCue{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(8px);} }
 @keyframes shine{ 0%{ background-position:-200% 0;} 100%{ background-position:200% 0;} }
 @keyframes popIn{ 0%{ opacity:0; transform:translateY(16px) scale(.96);} 100%{ opacity:1; transform:translateY(0) scale(1);} }
-@keyframes drift{ 0%{ transform:translateX(0);} 100%{ transform:translateX(-50%);} }
+@keyframes brandTicker{ 0%{ transform:translateX(0);} 100%{ transform:translateX(-25%);} }
 
 @media (prefers-reduced-motion: reduce){
   *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important; }
@@ -394,6 +505,8 @@ nav.main-nav a[data-active="true"]::after{ content:""; position:absolute; inset-
 @media (max-width:860px){
   .hero-inner{ padding-bottom:12px; }
   .section-alt{ border-top:0; padding-top:12px; }
+  .hero-copy{ padding-inline-start:0; text-align:right; }
+  .hero-stats{ justify-content:flex-start; }
 }
 .hero{ background:#fff; color:#111; }
 .hero-diagonal{ background:#fff !important; }
@@ -434,26 +547,100 @@ nav.main-nav a[data-active="true"]::after{ content:""; position:absolute; inset-
 }
 .stat-chip b{ color:var(--gold); font-size:15px; }
 .stat-chip{ background:#fff; border-color:#d7dce2; color:#111; }
+.hero{
+  background:linear-gradient(145deg,#fafdff 0%,#f2f7fb 58%,#eef4f8 100%);
+}
+.hero-diagonal{
+  background:url("./anwaar-branch-front.png") center top/100% auto no-repeat!important;
+}
+@media (max-width:860px){
+  .hero-copy{
+    width:100%;
+    margin:0;
+  }
+  .hero-copy::before{
+    content:"";
+    float:left;
+    width:100%;
+    height:320px;
+    shape-outside:polygon(0 0,68% 0,54% 30%,38% 58%,20% 82%,0 100%);
+  }
+  .hero-copy h1{
+    font-size:clamp(22px,6vw,26px);
+    line-height:1.32;
+    min-height:74px;
+    margin-bottom:14px;
+  }
+  .hero-copy p{
+    font-size:13px;
+    line-height:1.75;
+    margin-bottom:9px;
+  }
+  .hero-copy p + p{
+    border-top:0;
+    position:relative;
+    padding-top:12px;
+    margin-top:4px;
+  }
+  .hero-copy p + p::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:35%;
+    right:0;
+    height:1px;
+    background:#dbe6ef;
+  }
+  .hero-badge-wrap{
+    top:0;
+    width:68px;
+    height:68px;
+    margin-left:0;
+    margin-right:auto;
+    filter:drop-shadow(0 5px 7px rgba(7,27,48,.24));
+    animation:logoGlideLeft 5s ease-in-out infinite;
+  }
+}
+.hero-badge-wrap{
+  top:12px; padding:0; border:0; border-radius:0;
+  background-color:transparent; box-shadow:none;
+}
+.hero-copy h1{ color:var(--navy); }
+.hero-copy p{ color:#50657b; line-height:1.85; }
+@media (min-width:861px){
+  .hero-copy p + p{ padding-top:12px; margin-top:4px; border-top:1px solid #dbe6ef; }
+}
+.hero-copy .eyebrow{ color:var(--orange); }
+.hero-stats .stat-chip{ box-shadow:0 5px 12px rgba(10,58,92,.06); }
 @media (max-width:900px){
   .hero-stats{
-    flex-wrap:nowrap;
-    overflow:visible;
-    justify-content:stretch;
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
     gap:6px;
+    margin-top:46px;
     transform:none;
     padding-bottom:6px;
-    scrollbar-width:none;
-    -webkit-overflow-scrolling:touch;
   }
   .stat-chip{
-    flex:1 1 0;
+    position:relative;
+    width:100%;
     min-width:0;
     justify-content:center;
-    padding:7px 4px;
+    flex-direction:column;
+    border-radius:12px;
+    padding:13px 4px 8px;
     font-size:10.5px;
-    gap:4px;
+    gap:2px;
   }
-  .stat-chip .ic{ width:14px !important; height:14px !important; }
+  .stat-chip .ic{
+    position:absolute;
+    top:-30px;
+    inset-inline:0;
+    margin-inline:auto;
+    width:26px !important;
+    height:26px !important;
+    color:var(--navy) !important;
+  }
   .stat-chip b{ font-size:13px; }
   .stat-chip span{ white-space:nowrap; }
   .hero-stats .stat-chip:nth-child(1){ order:1; }
@@ -465,7 +652,7 @@ nav.main-nav a[data-active="true"]::after{ content:""; position:absolute; inset-
   .hero-stats{ gap:2px; transform:none; }
   .stat-chip{ padding-inline:1px; font-size:8.5px; gap:2px; }
   .stat-chip b{ font-size:11px; }
-  .stat-chip .ic{ width:11px !important; height:11px !important; }
+  .stat-chip .ic{ width:20px !important; height:20px !important; top:-27px; }
 }
 }
 
@@ -488,7 +675,9 @@ nav.main-nav a[data-active="true"]::after{ content:""; position:absolute; inset-
 .banner-strip .glow-2{ width:220px; height:220px; background:var(--orange); bottom:-80px; inset-inline-end:10%; }
 
 .brand-banner-strip{ padding-block:36px; text-align:center; position:relative; overflow:hidden; }
-.brand-banner-strip .marquee{ display:flex; gap:56px; white-space:nowrap; animation:drift 22s linear infinite; width:max-content; }
+.brand-banner-strip .wrap{ direction:ltr; }
+.brand-banner-strip .marquee{ display:flex; direction:ltr; white-space:nowrap; animation:brandTicker 22s linear infinite; width:max-content; margin-left:0; margin-right:auto; }
+.brand-banner-strip .marquee-group{ display:flex; gap:56px; padding-inline-end:56px; }
 .brand-banner-strip .marquee span{ font-size:15px; font-weight:700; color:var(--ink-soft); letter-spacing:.02em; opacity:.75; }
 
 /* ---------- REVEAL ON SCROLL ---------- */
@@ -779,6 +968,16 @@ nav.main-nav a[data-active="true"]::after{ content:""; position:absolute; inset-
   </div>
 </header>
 
+<nav class="section-tabs" aria-label="أقسام الصفحة">
+  <a href="#about" data-ar>من نحن</a><a href="#about" data-en>About</a>
+  <a href="#ecosystem" data-ar>منظومة الأعمال</a><a href="#ecosystem" data-en>Ecosystem</a>
+  <a href="#factory" data-ar>المصنع</a><a href="#factory" data-en>Factory</a>
+  <a href="#brands" data-ar>علاماتنا</a><a href="#brands" data-en>Brands</a>
+  <a href="#sectors" data-ar>القطاعات</a><a href="#sectors" data-en>Sectors</a>
+  <a href="#why" data-ar>لماذا نحن</a><a href="#why" data-en>Why Us</a>
+  <a href="#contact" data-ar>تواصل معنا</a><a href="#contact" data-en>Contact</a>
+</nav>
+
 <!-- ============ HERO / ABOUT ============ -->
 <section class="hero" id="top" style="position:relative;">
   <div class="hero-diagonal" style="position:absolute; inset:0;">
@@ -803,7 +1002,7 @@ nav.main-nav a[data-active="true"]::after{ content:""; position:absolute; inset-
       <h1 data-en>Anwaar Althuraya Trading Co.</h1>
       <p data-ar>تُعد شركة أنوار الثريا للتجارة إحدى الشركات السعودية المتخصصة في توفير حلول متكاملة في مجالات الإنارة، والأدوات الكهربائية والسباكة، والأدوات الصحية، ومواد البناء.</p>
       <p data-en>Anwaar Althuraya Trading Co. is a Saudi company specialized in providing integrated solutions in lighting, electrical products, plumbing, sanitary ware, and building materials.</p>
-      <p data-ar>ومن خلال مصنع إنارة السماء للصناعة (Sky Light Factory) وعلاماتنا التجارية نقدم منتجات عالية الجودة تجمع بين الابتكار والاعتمادية لتلبية احتياجات المشاريع والقطاعين التجاري والسكني في المملكة.</p>
+      <p data-ar>ومن خلال مصنع إنارة السماء للصناعة وعلاماتنا التجارية، نقدم منتجات عالية الجودة تجمع بين الابتكار والاعتمادية لتلبية احتياجات المشاريع والقطاعين التجاري والسكني في المملكة كافة.</p>
       <p data-en>Through Sky Light Factory and our specialized brands, we deliver high-quality products that combine innovation, reliability, and performance to serve residential, commercial, and project sectors across Saudi Arabia.</p>
       <div class="hero-stats">
         <div class="stat-chip"><svg class="ic" style="width:16px;height:16px;color:var(--gold)"><use href="#i-star"/></svg><b>4</b> <span data-ar>علامات تجارية</span><span data-en>Brands</span></div>
@@ -899,9 +1098,9 @@ nav.main-nav a[data-active="true"]::after{ content:""; position:absolute; inset-
     </div>
 
     <div class="subhead"><span data-ar>مجالات الأعمال</span><span data-en>Our Business Sectors</span></div>
-    <div class="mini-icon-grid">
-      <div class="mini-icon"><svg class="ic"><use href="#i-bulb"/></svg><span data-ar>الإنارة</span><span data-en>Lighting</span></div>
+    <div class="mini-icon-grid business-sectors">
       <div class="mini-icon"><svg class="ic"><use href="#i-bolt"/></svg><span data-ar>الأدوات الكهربائية</span><span data-en>Electrical Products</span></div>
+      <div class="mini-icon"><svg class="ic"><use href="#i-bulb"/></svg><span data-ar>الإنارة</span><span data-en>Lighting</span></div>
       <div class="mini-icon"><svg class="ic"><use href="#i-droplet"/></svg><span data-ar>السباكة والأدوات الصحية</span><span data-en>Plumbing & Sanitary Ware</span></div>
       <div class="mini-icon"><svg class="ic"><use href="#i-brick"/></svg><span data-ar>مواد البناء</span><span data-en>Building Materials</span></div>
       <div class="mini-icon"><svg class="ic"><use href="#i-helmet"/></svg><span data-ar>حلول المشاريع والتوريد</span><span data-en>Projects & Supply Solutions</span></div>
@@ -914,7 +1113,7 @@ nav.main-nav a[data-active="true"]::after{ content:""; position:absolute; inset-
   <div class="wrap">
     <div class="section-head">
       <div class="kicker" data-ar>مصنع إنارة السماء للصناعة</div><div class="kicker" data-en>SKY LIGHT FACTORY</div>
-      <h2 data-ar>الذراع التصنيعي المحلي لشركة أنوار الثريا للتجارة</h2>
+      <h2 class="factory-title" data-ar>الذراع التصنيعي المحلي لشركة أنوار الثريا للتجارة</h2>
       <h2 data-en>The Local Manufacturing Arm of Anwaar Althuraya Trading Co.</h2>
     </div>
 
@@ -926,26 +1125,28 @@ nav.main-nav a[data-active="true"]::after{ content:""; position:absolute; inset-
         <p style="color:var(--ink-soft); font-size:15px;" data-en>It enhances local stock readiness and product reliability across the company's sales channels.</p>
       </div>
       <div class="factory-visual">
-        <svg viewBox="0 0 240 160" fill="none" stroke="var(--navy)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="20" y="70" width="200" height="80" fill="#fff"/>
-          <path d="M20 70 40 40h60l20 30M120 70l20-30h40l20 30"/>
-          <rect x="55" y="90" width="20" height="20" fill="#eef3f8"/>
-          <rect x="95" y="90" width="20" height="20" fill="#eef3f8"/>
-          <rect x="135" y="90" width="20" height="20" fill="#eef3f8"/>
-          <rect x="175" y="90" width="20" height="20" fill="#eef3f8"/>
-          <rect x="100" y="120" width="30" height="30" fill="#eef3f8"/>
-          <circle cx="60" cy="55" r="3" fill="var(--orange)" stroke="none"/>
-        </svg>
+        <img src="sky-light-factory-exterior.jpg" alt="واجهة مصنع إنارة السماء للصناعة" data-alt-en="Sky Light Factory exterior">
       </div>
     </div>
 
+    <div class="factory-areas">
+      <figure class="factory-area">
+        <img src="factory-production-area.png" alt="منطقة الإنتاج في مصنع إنارة السماء" data-alt-en="Production area at Sky Light Factory">
+        <figcaption data-ar>منطقة الإنتاج</figcaption><figcaption data-en>Production Area</figcaption>
+      </figure>
+      <figure class="factory-area">
+        <img src="factory-storage-area.png" alt="منطقة التخزين في مصنع إنارة السماء" data-alt-en="Storage area at Sky Light Factory">
+        <figcaption data-ar>منطقة التخزين</figcaption><figcaption data-en>Storage Area</figcaption>
+      </figure>
+    </div>
+
     <div class="subhead"><span data-ar>قدرات التصنيع المحلي</span><span data-en>Local Manufacturing Capabilities</span></div>
-    <div class="mini-icon-grid">
+    <div class="mini-icon-grid factory-capabilities">
+      <div class="mini-icon"><svg class="ic"><use href="#i-factory"/></svg><span data-ar>التصنيع المحلي</span><span data-en>Local Manufacturing</span></div>
       <div class="mini-icon"><svg class="ic"><use href="#i-check"/></svg><span data-ar>تصنيع منتجاتنا الخاصة</span><span data-en>Own-Brand Manufacturing</span></div>
       <div class="mini-icon"><svg class="ic"><use href="#i-box"/></svg><span data-ar>جاهزية المخزون</span><span data-en>Stock Readiness</span></div>
       <div class="mini-icon"><svg class="ic"><use href="#i-gear"/></svg><span data-ar>كفاءة الإنتاج</span><span data-en>Production Efficiency</span></div>
       <div class="mini-icon"><svg class="ic"><use href="#i-shield"/></svg><span data-ar>ضبط الجودة</span><span data-en>Quality Control</span></div>
-      <div class="mini-icon"><svg class="ic"><use href="#i-factory"/></svg><span data-ar>التصنيع المحلي</span><span data-en>Local Manufacturing</span></div>
     </div>
   </div>
 </section>
@@ -955,8 +1156,18 @@ nav.main-nav a[data-active="true"]::after{ content:""; position:absolute; inset-
 <div class="brand-banner-strip reveal">
   <div class="wrap" style="overflow:hidden;">
     <div class="marquee">
-      <span>WEIJU</span><span>BFCO</span><span>LUXGEN</span><span>OVER LIGHT</span>
-      <span>WEIJU</span><span>BFCO</span><span>LUXGEN</span><span>OVER LIGHT</span>
+      <div class="marquee-group">
+        <span>WEIJU</span><span>BFCO</span><span>LUXGEN</span><span>OVER LIGHT</span>
+      </div>
+      <div class="marquee-group" aria-hidden="true">
+        <span>WEIJU</span><span>BFCO</span><span>LUXGEN</span><span>OVER LIGHT</span>
+      </div>
+      <div class="marquee-group" aria-hidden="true">
+        <span>WEIJU</span><span>BFCO</span><span>LUXGEN</span><span>OVER LIGHT</span>
+      </div>
+      <div class="marquee-group" aria-hidden="true">
+        <span>WEIJU</span><span>BFCO</span><span>LUXGEN</span><span>OVER LIGHT</span>
+      </div>
     </div>
   </div>
 </div>
@@ -974,6 +1185,7 @@ nav.main-nav a[data-active="true"]::after{ content:""; position:absolute; inset-
       <p data-ar>صممت منتجات ويجو لتلبية احتياجات السوق السعودي في الاستخدامات السكنية والتجارية والمشاريع، مع التركيز على الاعتمادية وسهولة الاستخدام، وتوفر المنتجات عبر قنوات بيع الشركة.</p>
       <p data-en>Its products are designed for residential, commercial, and project applications across the Saudi market, with a focus on reliability, practicality, and product availability.</p>
     </div>
+    <div class="brand-product-banner"><svg class="ic"><use href="#i-box"/></svg><div><b data-ar>منتجات ويجو المحلية</b><b data-en>WEIJU Local Products</b><span data-ar>حلول عملية موثوقة للاستخدامات اليومية والمشاريع.</span><span data-en>Practical, reliable solutions for everyday use and projects.</span></div></div>
     <div class="subhead"><span data-ar>نطاق منتجات ويجو</span><span data-en>WEIJU Product Range</span></div>
     <div class="product-grid">
       <div class="product-item"><svg class="ic"><use href="#i-droplet"/></svg><span data-ar>سخانات مياه فورية</span><span data-en>Instant Water Heaters</span></div>
@@ -1008,6 +1220,7 @@ nav.main-nav a[data-active="true"]::after{ content:""; position:absolute; inset-
       <p data-ar>تجمع العلامة بين منتجات تُصنع محليًا وأخرى تُستورد بعناية، بما يحقق توازنًا بين التنوع، وسرعة التوفر، والاعتمادية.</p>
       <p data-en>The brand combines locally manufactured products with carefully selected imports, delivering a balanced portfolio that offers diversity, product availability, and reliable performance.</p>
     </div>
+    <div class="brand-product-banner"><svg class="ic"><use href="#i-puzzle"/></svg><div><b data-ar>تنوع عملي من بفكو</b><b data-en>BFCO Practical Range</b><span data-ar>منتجات متعددة الفئات تلبي احتياجات السوق والمشاريع.</span><span data-en>Multi-category products for market and project needs.</span></div></div>
     <div class="subhead"><span data-ar>نطاق منتجات بفكو</span><span data-en>BFCO Product Range</span></div>
     <div class="product-grid">
       <div class="product-item"><svg class="ic"><use href="#i-lamp"/></svg><span data-ar>منتجات الإنارة</span><span data-en>Lighting Products</span></div>
@@ -1042,6 +1255,7 @@ nav.main-nav a[data-active="true"]::after{ content:""; position:absolute; inset-
       <p data-ar>تركز العلامة على حلول الإضاءة الحديثة ذات الأداء الموثوق، وتشمل منتجاتها الإنارة الداخلية والخارجية، إنارة الشوارع، الكشافات، المساطر، حبال الليد، وأنظمة التراك المغناطيسي والإنارة المعمارية.</p>
       <p data-en>The brand focuses on modern lighting solutions with reliable performance, covering indoor and outdoor lighting street lights, floodlights, linear lights, LED strips, magnetic track systems, and architectural lighting applications.</p>
     </div>
+    <div class="brand-product-banner"><svg class="ic"><use href="#i-bulb"/></svg><div><b data-ar>حلول لوكسجين المتخصصة</b><b data-en>LUXGEN Specialized Solutions</b><span data-ar>إنارة حديثة بأداء موثوق لمختلف الاستخدامات.</span><span data-en>Modern lighting with reliable performance for diverse uses.</span></div></div>
     <div class="subhead"><span data-ar>نطاق منتجات لوكسجين</span><span data-en>LUXGEN Product Range</span></div>
     <div class="product-grid">
       <div class="product-item"><svg class="ic"><use href="#i-lamp"/></svg><span data-ar>كشافات داخلية وخارجية</span><span data-en>Indoor & Outdoor Lights</span></div>
@@ -1076,6 +1290,7 @@ nav.main-nav a[data-active="true"]::after{ content:""; position:absolute; inset-
       <p data-ar>تركز العلامة على توفير منتجات إنارة عملية وموثوقة، تشمل البانلات وكشافات السقف، كشافات الكوب، كشافات اللطش، كشافات الشوارع، وكشافات السلندر LED، بما يلبي احتياجات السوق السكني والتجاري من حلول إنارة بسيطة، فعالة، ومتوفرة.</p>
       <p data-en>The brand focuses on practical and reliable LED lighting products, including panels and ceiling lights, COB downlights, surface lights, LED surface cylinders, and street lights, meeting residential and commercial market needs with simple, efficient, and available lighting solutions.</p>
     </div>
+    <div class="brand-product-banner"><svg class="ic"><use href="#i-lamp"/></svg><div><b data-ar>إنارة أوفر لايت العملية</b><b data-en>OVER LIGHT Practical Lighting</b><span data-ar>حلول اقتصادية موثوقة للاستخدامات السكنية والتجارية.</span><span data-en>Reliable value lighting for residential and commercial use.</span></div></div>
     <div class="subhead"><span data-ar>نطاق منتجات أوفر لايت</span><span data-en>OVER LIGHT Product Range</span></div>
     <div class="product-grid">
       <div class="product-item"><svg class="ic"><use href="#i-panel"/></svg><span data-ar>كشافات أرمسترونج</span><span data-en>Armstrong Panel Lights</span></div>
@@ -1199,18 +1414,17 @@ nav.main-nav a[data-active="true"]::after{ content:""; position:absolute; inset-
           <a href="#" aria-label="Instagram"><svg class="ic" style="width:16px;height:16px;"><use href="#i-insta"/></svg></a>
         </div>
       </div>
-      <div class="qr-box">
+      <a class="qr-box qr-link" href="https://anwaar-althuraya.com/" target="_blank" rel="noopener noreferrer">
         <div class="ic-wrap"><svg class="ic"><use href="#i-cart"/></svg></div>
         <h4><span data-ar>المتجر الالكتروني</span><span data-en>Online Store</span></h4>
         <p><span data-ar>تصفح منتجاتنا واطلب مباشرة عبر متجرنا الإلكتروني.</span><span data-en>Browse our products and order directly through our online store.</span></p>
-        <div class="qr-deco"></div>
-      </div>
-      <div class="qr-box">
+        <span class="shop-cta"><span data-ar>تسوق الآن ↗</span><span data-en>Shop now ↗</span></span>
+      </a>
+      <a class="qr-box catalog-qr-card" href="catalog-viewer.html?file=catalog-qr-guide.pdf" target="_blank" rel="noopener noreferrer">
         <div class="ic-wrap"><svg class="ic"><use href="#i-box"/></svg></div>
-        <h4><span data-ar>مكتبة الكتالوجات</span><span data-en>Product Catalogs</span></h4>
-        <p><span data-ar>استعرض جميع كتالوجات علاماتنا التجارية ومنتجاتها.</span><span data-en>Access all product catalogs for our brands in one place.</span></p>
-        <div class="qr-deco"></div>
-      </div>
+        <h4><span data-ar>دليل الكتالوجات</span><span data-en>Catalog Guide</span></h4>
+        <p><span data-ar>امسح الباركود للوصول السريع إلى كتالوجات المنتجات.</span><span data-en>Scan the QR code for quick access to product catalogs.</span></p>
+      </a>
     </div>
   </div>
 </section>
@@ -1248,6 +1462,31 @@ function setLang(lang){
   document.getElementById('btnEn').classList.toggle('active', lang === 'en');
   document.getElementById('mainNav').classList.remove('open');
 }
+
+/* ---- position each brand banner above its gallery filters ---- */
+var brandCatalogs = [
+  { name: 'WEIJU', file: 'weiju-catalog.pdf' },
+  { name: 'BFCO', file: 'bfco-catalog.pdf' },
+  { name: 'LUXGEN', file: 'luxgen-catalog.pdf' },
+  { name: 'OVER LIGHT', file: 'over-light-catalog.pdf' }
+];
+document.querySelectorAll('.brand-section').forEach(function(section, index){
+  var banner = section.querySelector('.brand-product-banner');
+  var galleryHead = section.querySelector('.gallery-head');
+  if(banner && galleryHead){
+    galleryHead.parentNode.insertBefore(banner, galleryHead);
+  }
+  var catalog = brandCatalogs[index];
+  var brandHead = section.querySelector('.brand-head');
+  if(catalog && brandHead){
+    var actions = document.createElement('div');
+    actions.className = 'brand-catalog-actions';
+    actions.innerHTML =
+      '<a class="catalog-action primary" href="catalog-viewer.html?file=' + catalog.file + '" target="_blank" rel="noopener noreferrer"><span data-ar>عرض كتالوج ' + catalog.name + '</span><span data-en>View ' + catalog.name + ' Catalog</span></a>' +
+      '<a class="catalog-action" href="' + catalog.file + '" download><span data-ar>تحميل PDF</span><span data-en>Download PDF</span></a>';
+    brandHead.insertAdjacentElement('afterend', actions);
+  }
+});
 
 /* ---- scroll reveal ---- */
 (function(){
