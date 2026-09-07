@@ -469,7 +469,7 @@ nav.main-nav a[data-active="true"]::after{ content:""; position:absolute; inset-
 .gallery-item:hover .thumb img{ transform:scale(1.08); }
 .gallery-item figcaption{ font-size:11.5px; line-height:1.5; color:var(--ink); padding:8px 10px 10px; text-align:center; min-height:2.9em; }
 .gallery-item{ margin:0; }
-@media (max-width:560px){
+@media (max-width:900px){
   .cat-tabs{
     display:flex !important;
     flex-wrap:nowrap !important;
@@ -1210,8 +1210,8 @@ function filterGallery(btn, galleryId){
   var cat = btn.getAttribute('data-cat');
   var groupsWrap = document.querySelector('.cat-groups[data-gallery="'+galleryId+'"]');
   if(!groupsWrap) return;
-  tabsWrap.classList.toggle('mobile-all', window.innerWidth <= 560 && cat === 'all');
-  groupsWrap.classList.toggle('mobile-all', window.innerWidth <= 560 && cat === 'all');
+  tabsWrap.classList.toggle('mobile-all', window.innerWidth <= 900 && cat === 'all');
+  groupsWrap.classList.toggle('mobile-all', window.innerWidth <= 900 && cat === 'all');
 
   groupsWrap.querySelectorAll('.cat-group').forEach(function(g){
     var isMatch = (cat === 'all' || g.getAttribute('data-cat') === cat);
@@ -1225,7 +1225,7 @@ document.addEventListener('DOMContentLoaded', function(){
   document.querySelectorAll('.cat-tabs').forEach(function(tabsWrap){
     var active = tabsWrap.querySelector('.cat-tab.active');
     var groupsWrap = document.querySelector('.cat-groups[data-gallery="'+tabsWrap.getAttribute('data-gallery')+'"]');
-    if (active && groupsWrap && active.getAttribute('data-cat') === 'all' && window.innerWidth <= 560) {
+    if (active && groupsWrap && active.getAttribute('data-cat') === 'all' && window.innerWidth <= 900) {
       tabsWrap.classList.add('mobile-all');
       groupsWrap.classList.add('mobile-all');
     }
@@ -1237,8 +1237,8 @@ window.addEventListener('resize', function(){
     var active = tabsWrap.querySelector('.cat-tab.active');
     var groupsWrap = document.querySelector('.cat-groups[data-gallery="'+tabsWrap.getAttribute('data-gallery')+'"]');
     if (active && groupsWrap) {
-      tabsWrap.classList.toggle('mobile-all', window.innerWidth <= 560 && active.getAttribute('data-cat') === 'all');
-      groupsWrap.classList.toggle('mobile-all', window.innerWidth <= 560 && active.getAttribute('data-cat') === 'all');
+      tabsWrap.classList.toggle('mobile-all', window.innerWidth <= 900 && active.getAttribute('data-cat') === 'all');
+      groupsWrap.classList.toggle('mobile-all', window.innerWidth <= 900 && active.getAttribute('data-cat') === 'all');
     }
   });
 });
